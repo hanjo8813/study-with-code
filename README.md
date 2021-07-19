@@ -4,56 +4,56 @@
 
 <br>
 
-# 🎯 Target
+## 🎯 Target
 
-## Spring 관련 기술
+### Spring 관련 기술
 
-### Language
+#### Language
 - Java
 - Kotlin
 - Groovy
 
-### Framework
+#### Framework
 - Spring MVC
 - Spring Boot
 
-### Build
+#### Build
 - Maven
 - Gradle
 
-### Template Engine
+#### Template Engine
 - JSP
 - Servlet
 
-### DB connect
+#### DB connect
 - JDBC
 
-### SQL Mapper
+#### SQL Mapper
 - Mybatis
 
-### ORM
+#### ORM
 - JPA
 - Hibernate
 
-## 그 외 기술
+### 그 외 기술
 
-### Server
+#### Server
 - Tomcat
 
-### Database
+#### Database
 - Redis
 
-### Rest API
+#### Rest API
 - Swagger
 - Postman
 
-### CI/CD
+#### CI/CD
 - Jenkins
 - Travis CI
 - Github Actions
 - Docker
 - Kubernates
 
-### Test
+#### Test
 - Junit
 - Jacoco
