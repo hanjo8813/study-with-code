@@ -14,7 +14,6 @@
 - Groovy
 
 #### Framework
-- Spring MVC
 - Spring Boot
 
 #### Build
@@ -23,7 +22,7 @@
 
 #### Template Engine
 - JSP
-- Servlet
+- Thymeleaf
 
 #### DB connect
 - JDBC
@@ -42,6 +41,7 @@
 
 #### Database
 - Redis
+- MongoDB
 
 #### Rest API
 - Swagger
