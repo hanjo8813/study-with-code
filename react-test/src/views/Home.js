@@ -11,6 +11,10 @@ function Home(props) {
             <br/>
             <Link to={`/calender`}>달력 테스트</Link>
             <br/>
+            <Link to={`/kitchen`}>소켓 테스트 - 주방</Link>
+            <br/>
+            <Link to={`/hall`}>소켓 테스트 - 홀</Link>
+            <br/>
         </div>
     );
 }
