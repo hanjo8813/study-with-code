@@ -7,6 +7,7 @@ import ImageUploadForm from './views/ImageUploadForm';
 import ImageUploadBase64 from './views/ImageUploadBase64';
 import Calender from './views/Calender';
 import SockJsTest from './views/SockJsTest';
+import SocketIoTest from './views/SocketIoTest';
 
 
 
@@ -22,6 +23,7 @@ function App() {
       <Route path="/calender" component={Calender} exact />
 
       <Route path="/sockjs" component={SockJsTest} exact />
+      <Route path="/socketio" component={SocketIoTest} exact />
 
     </BrowserRouter>
   );

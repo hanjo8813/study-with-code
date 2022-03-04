@@ -23,6 +23,10 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // netty socket.io
+    implementation group: 'com.corundumstudio.socketio', name: 'netty-socketio', version: '1.7.17'
+
 }
 
 tasks.named('test') {

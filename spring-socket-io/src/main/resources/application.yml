@@ -1,0 +1,26 @@
+
+spring:
+  profiles:
+    default: local
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local
+
+socket:
+  host: localhost
+  port: 8888
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+socket:
+  host: localhost
+  port: 8080

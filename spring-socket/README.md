@@ -2,7 +2,7 @@
 
 <br>
 
-## 참고링크
+## SockJs
 
-- https://velog.io/@cksal5911/WebSoket-stompJSReact-%EC%B1%84%ED%8C%85-1
-- https://november11tech.tistory.com/173
+- 스프링에서는 소켓 통신을 위해 SockJs와 STOMP 규격을 사용함
+- 익숙했던 socket.io는 node.js 기반이라고 함

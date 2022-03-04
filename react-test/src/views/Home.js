@@ -13,7 +13,8 @@ function Home(props) {
             <br/>
             <Link to={`/sockjs`}>sockjs + stomp 테스트</Link>
             <br/>
-
+            <Link to={`/socketio`}>socket.io 테스트</Link>
+            <br/>
         </div>
     );
 }
