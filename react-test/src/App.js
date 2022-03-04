@@ -6,8 +6,7 @@ import Home from './views/Home';
 import ImageUploadForm from './views/ImageUploadForm';
 import ImageUploadBase64 from './views/ImageUploadBase64';
 import Calender from './views/Calender';
-import Kitchen from './views/socket-test/Kitchen';
-import Hall from './views/socket-test/Hall';
+import SockJsTest from './views/SockJsTest';
 
 
 
@@ -22,8 +21,7 @@ function App() {
 
       <Route path="/calender" component={Calender} exact />
 
-      <Route path="/kitchen" component={Kitchen} exact />
-      <Route path="/hall" component={Hall} exact />
+      <Route path="/sockjs" component={SockJsTest} exact />
 
     </BrowserRouter>
   );
