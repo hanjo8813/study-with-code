@@ -4,10 +4,14 @@
 
 <br>
 
-- logback, ELK Stack
-- Redis, MongoDB
-- Filter, Interceptor, AOP
+- Spring Websocket
 - Spring Security
-- socket
-- gRPC
+- Spring logback, ELK Stack
+- Filter, Interceptor, AOP
+- Redis, Memcache
+- MongoDB
+- kafka
 - kubernates
+- gRPC
+
+<br>
