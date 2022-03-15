@@ -1,1 +1,4 @@
 rootProject.name = 'spring-study'
+include 'practice-aop'
+include 'practice-proxy'
+
