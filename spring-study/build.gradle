@@ -19,10 +19,16 @@ repositories {
 }
 
 dependencies {
+    // base
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // cglib
+    implementation group: 'cglib', name: 'cglib', version: '3.3.0'
+    // aop
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
 }
 
 tasks.named('test') {

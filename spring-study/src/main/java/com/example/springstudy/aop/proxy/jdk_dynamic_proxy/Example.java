@@ -1,4 +1,4 @@
-package com.example.springstudy.aop.jdk_dynamic_proxy;
+package com.example.springstudy.aop.proxy.jdk_dynamic_proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -12,7 +12,7 @@ public class Example {
     }
 
     // target
-    public static class DummyImpl implements Dummy {
+    public static class DummyService implements Dummy {
         @Override
         public void doSomething() {
             System.out.println("DO");
@@ -39,13 +39,12 @@ public class Example {
 
     // client
     public static void main(String[] args) {
-        Dummy target = new DummyImpl();
+        Dummy target = new DummyService();
         Dummy proxy = (Dummy) Proxy.newProxyInstance(
             Example.class.getClassLoader(),
-            new Class[]{Dummy.class},
+            new Class[]{Dummy.class},   // 인터페이스 타입을 지정해줘야함
             new DummyProxy(target)
         );
-
         proxy.doSomething();
     }
 }

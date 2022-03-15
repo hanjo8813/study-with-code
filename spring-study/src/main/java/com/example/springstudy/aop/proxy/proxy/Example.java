@@ -1,4 +1,4 @@
-package com.example.springstudy.aop.proxy;
+package com.example.springstudy.aop.proxy.proxy;
 
 public class Example {
     // 기능정의
@@ -7,7 +7,7 @@ public class Example {
     }
 
     // target
-    public static class DummyImpl implements Dummy{
+    public static class DummyService implements Dummy{
         @Override
         public void doSomething(){
             System.out.println("DO");
@@ -31,7 +31,7 @@ public class Example {
 
     // client
     public static void main(String[] args){
-        Dummy target = new DummyImpl();
+        Dummy target = new DummyService();
         Dummy proxy = new DummyProxy(target);
         proxy.doSomething();
     }
