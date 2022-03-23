@@ -32,7 +32,7 @@ public class User {
     @Column
     private int age;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.PERSIST)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Post> posts = new ArrayList<>();
 
     @Builder
@@ -52,7 +52,7 @@ public class User {
 
     @Override
     public String toString() {
-//        return String.format("{ id : %d | name : %s | age : %d }", id, name, age);
-        return String.format("{ user_id : %d | name : %s | age : %d | post_size : %d }", id, name, age, posts.size());
+        return String.format("{ id : %d | name : %s | age : %d }", id, name, age);
+//        return String.format("{ user_id : %d | name : %s | age : %d | post_size : %d }", id, name, age, posts.size());
     }
 }
