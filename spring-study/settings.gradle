@@ -5,4 +5,5 @@ include 'practice-jpa'
 include 'practice-all-flow'
 include 'practice-logback'
 include 'practice-socket'
+include 'practice-dummy'
 
