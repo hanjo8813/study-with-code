@@ -1,4 +1,4 @@
-package com.example.practicedummy.controller.b_응답wrapper;
+package com.example.practicedummy.b_응답wrapper;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

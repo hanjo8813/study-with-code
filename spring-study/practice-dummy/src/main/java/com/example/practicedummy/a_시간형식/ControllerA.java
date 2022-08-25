@@ -1,4 +1,4 @@
-package com.example.practicedummy.controller.a_시간형식;
+package com.example.practicedummy.a_시간형식;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
