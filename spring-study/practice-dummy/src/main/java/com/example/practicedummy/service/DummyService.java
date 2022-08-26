@@ -1,5 +1,7 @@
-package com.example.practicedummy.c_엔티티타입;
+package com.example.practicedummy.service;
 
+import com.example.practicedummy.repository.DummyRepository;
+import com.example.practicedummy.entity.Dummy;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -10,17 +12,17 @@ import javax.transaction.Transactional;
 @RequiredArgsConstructor
 @Transactional
 @Service
-public class ServiceC {
+public class DummyService {
 
-    private final DummyRepositoryC repository;
+    private final DummyRepository repository;
 
-    public DummyC save(){
-        DummyC dummyC = DummyC.builder()
+    public Dummy save(){
+        Dummy dummyC = Dummy.builder()
                 .bool(true)
                 .build();
         log.info("{}", dummyC);
 
-        DummyC save = repository.save(dummyC);
+        Dummy save = repository.save(dummyC);
         log.info("{}", save);
 
         return save;

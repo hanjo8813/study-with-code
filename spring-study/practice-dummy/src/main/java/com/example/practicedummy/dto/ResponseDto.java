@@ -1,4 +1,4 @@
-package com.example.practicedummy.a_시간형식;
+package com.example.practicedummy.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
@@ -20,6 +20,4 @@ public class ResponseDto {
     private LocalTime t;
 }
 
-// "pureDt": "2022-08-25T10:13:30.635601",
-// "dt": "2022-08-25T01:41",
-// "t": "01:41:21"
+

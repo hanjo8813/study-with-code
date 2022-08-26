@@ -1,4 +1,4 @@
-package com.example.practicedummy.c_엔티티타입;
+package com.example.practicedummy.entity;
 
 import lombok.*;
 import org.hibernate.annotations.Type;
@@ -9,9 +9,9 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
-@Table(name = "dummy_c")
+@Table(name = "dummy")
 @Entity
-public class DummyC {
+public class Dummy {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
