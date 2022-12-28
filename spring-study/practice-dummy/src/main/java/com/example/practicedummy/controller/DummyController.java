@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -84,13 +85,14 @@ public class DummyController {
     }
 
     /**
-     * 문제 : model attribute로 파라미터를 받을 때 validation
-     * 결과 :
+     * 문제 : ModelAttribute로 파라미터를 받을 때 validation 하기
+     * 결과 : RequestParam or RequestBody와 동일하게 검증 가능
      */
     @GetMapping("/8")
-    public void test8(RequestParamDto param) {
+    public void test8(@Valid RequestParamDto param) {
         log.info("{}", param.getNum());
         log.info("{}", param.getStr());
+        log.info("{}", param.getDummyEnum());
     }
 
 }

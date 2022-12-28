@@ -17,7 +17,7 @@ public class ControllerAspect {
 
     // "execution([접근지정자] [리턴타입] [패키지].[클래스].[메소드]([인자값타입]))"
 
-    @Pointcut("execution(public String com.example.practiceaop.controller.*.*(..))")
+    @Pointcut(value = "execution(public String com.example.practiceaop.controller.*.*(..))")
     private void pointCut() {
     }
 
@@ -35,10 +35,11 @@ public class ControllerAspect {
         System.out.println("Controller - AfterReturning : " + methodName + " 메소드가 return 되었습니다");
     }
 
-    @AfterThrowing("pointCut()")
-    public void afterThrowing(JoinPoint joinPoint){
+    @AfterThrowing(value = "pointCut()", throwing = "e")
+    public void afterThrowing(JoinPoint joinPoint, Exception e){
         String methodName = joinPoint.getSignature().getName();
         System.out.println("Controller - AfterThrowing : " + methodName + " 메소드에서 예외가 발생했습니다");
+        System.out.println(e.getMessage());
     }
 
     @After("pointCut()")
@@ -51,7 +52,7 @@ public class ControllerAspect {
      * Around는 Before, After, AfterReturning, AfterThrowing 범위를 모두 커버한다
      * ProceedingJoinPoint 자체가 컨트롤러 메소드의 요청을 빼앗은 객체임
      */
-    @Around("execution(public String com.example.springstudy.aop.practice.controller.*.test1(..))")
+    @Around("execution(public String com.example.practiceaop.controller.*.test1(..))")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         String methodName = joinPoint.getSignature().getName();
         // 모든게 시작 전
