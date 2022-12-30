@@ -56,13 +56,11 @@ public class TestController {
         return "";
     }
 
-    // test7("hi", 10);
-
-
-    @DoSomething2(params="#title.concat(#age)")
-    @GetMapping("/test7")
-    @Cacheable(key = "#title.concat(#age)")
-    public String test7(String title, Integer age){
-        return "";
-    }
+//
+//    @DoSomething2(params="#title.concat(#age)")
+//    @GetMapping("/test7")
+//    @Cacheable(key = "#title.concat(#age)")
+//    public String test7(String title, Integer age){
+//        return "";
+//    }
 }
