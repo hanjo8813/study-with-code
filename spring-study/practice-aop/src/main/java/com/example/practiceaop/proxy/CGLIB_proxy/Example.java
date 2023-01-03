@@ -1,4 +1,4 @@
-package com.example.practiceproxy.CGLIB_proxy;
+package com.example.practiceaop.proxy.CGLIB_proxy;
 
 import java.lang.reflect.Method;
 import net.sf.cglib.proxy.Enhancer;

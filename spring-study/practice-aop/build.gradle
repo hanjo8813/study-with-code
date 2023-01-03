@@ -1,3 +1,4 @@
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation group: 'cglib', name: 'cglib', version: '3.3.0'
 }

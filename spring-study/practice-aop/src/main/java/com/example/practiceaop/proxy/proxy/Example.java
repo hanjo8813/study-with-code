@@ -1,4 +1,4 @@
-package com.example.practiceproxy.proxy;
+package com.example.practiceaop.proxy.proxy;
 
 public class Example {
     // 기능정의
