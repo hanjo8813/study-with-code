@@ -1,4 +1,4 @@
-package com.example.practicereactive;
+package com.example.practicereactive.D1_1_옵저버패턴_입문;
 
 import java.util.Iterator;
 import java.util.Observable;
@@ -6,10 +6,21 @@ import java.util.Observer;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-// Iterable <-> Observable (duality)
+
+/**
+ * 기존 익숙한 방식과 옵저버 패턴 차이
+ * Iterable <-> Observable (duality)
+ *
+ * 기존 옵저버 패턴의 문제점
+ *
+ * 1. 처리 완료 개념이 없다
+ * 2. 예외 처리가 애매하다 (fallback 부재)
+ *
+ * 이걸 보완해서 자바 유틸이 나옴 -> pub/sub
+ */
 
 @SuppressWarnings("deprecation")
-public class 옵저버패턴_입문 {
+public class ObserverPat {
 
     /**
      * Iterable
@@ -75,23 +86,3 @@ public class 옵저버패턴_입문 {
         temp2();
     }
 }
-
-
-/**
- * 기존 옵저버 패턴의 문제점
- *
- * 1. 처리 완료 개념이 없다
- * 2. 예외 처리가 애매하다 (fallback 부재)
- *
- * 이걸 보완해서 리액티브 프로그래밍 개념을 만들었다
- *
- * ---
- *
- * ReactiveX 그룹 -> 표준임
- *
- * ---
- *
- *
- *
- *
- */
