@@ -1,4 +1,4 @@
-package com.example.practicereactive;
+package com.example.practicereactive.D2_3_spring_pubsub;
 
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;

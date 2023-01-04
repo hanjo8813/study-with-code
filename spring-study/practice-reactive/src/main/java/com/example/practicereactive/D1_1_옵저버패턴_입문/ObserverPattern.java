@@ -10,6 +10,9 @@ import java.util.concurrent.Executors;
 /**
  * 기존 익숙한 방식과 옵저버 패턴 차이
  * Iterable <-> Observable (duality)
+ * jdk1부터 있던 Observable 구조 살펴보기
+ *
+ * ---
  *
  * 기존 옵저버 패턴의 문제점
  *
@@ -20,7 +23,7 @@ import java.util.concurrent.Executors;
  */
 
 @SuppressWarnings("deprecation")
-public class ObserverPat {
+public class ObserverPattern {
 
     /**
      * Iterable
