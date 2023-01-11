@@ -1,4 +1,4 @@
-package com.example.practicereactive.D2_2_reactor1;
+package com.example.practicereactive.D2_2_pubsub_reactor;
 
 import reactor.core.publisher.Flux;
 
