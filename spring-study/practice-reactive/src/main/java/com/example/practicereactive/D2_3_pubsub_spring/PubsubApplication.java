@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-public class PracticeReactiveApplication {
+public class PubsubApplication {
 
     /**
      * sub은 스프링이 알아서 만들어서 제어
@@ -38,6 +38,6 @@ public class PracticeReactiveApplication {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(PracticeReactiveApplication.class, args);
+        SpringApplication.run(PubsubApplication.class, args);
     }
 }

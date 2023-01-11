@@ -21,6 +21,7 @@ public class PracticeAopApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        // 인터페이스 여부와 상관없이 CGLIB으로 프록시 객체 생성됨
         System.out.println(applicationContext.getBean(TestService.class).getClass());
         System.out.println(applicationContext.getBean(TestController.class).getClass());
     }
