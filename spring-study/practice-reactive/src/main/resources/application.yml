@@ -1,0 +1,5 @@
+# D4_3_future_spring_web - 부하 테스트에서 사용
+server:
+  tomcat:
+    threads:
+      max: 200

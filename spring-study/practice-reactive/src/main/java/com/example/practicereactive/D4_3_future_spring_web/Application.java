@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.concurrent.Callable;
 
 /**
+ * memo.md 참고 ㄱ
+ *
  * - 얫날 servlet
  * 1 커넥션 == 1 스레드
  * 이 방식은 비동기 처리할때 문제 유발함
- * (그림이 필요)
  *
  * - servlet 3.0
  * 비동기 서블릿
@@ -28,12 +29,27 @@ import java.util.concurrent.Callable;
 @Slf4j
 @EnableAsync
 @SpringBootApplication
-public class AsyncApplication {
+public class Application {
 
     @RestController
     public static class MyController {
-        @GetMapping("/callable")
-        public Callable<String> callable() throws InterruptedException {
+        /**
+         * 동기
+         */
+        @GetMapping("/sync")
+        public String sync() throws InterruptedException {
+            log.info("async");
+            Thread.sleep(2000);
+            return "hello";
+        }
+
+        /**
+         * 비동기
+         * Callable 객체를 그냥 리턴해도 스프링이 알아서 처리해줌
+         * (실행 및 응답까지)
+         */
+        @GetMapping("/async")
+        public Callable<String> async() throws InterruptedException {
             log.info("callable");
             return () -> {
                 log.info("async");
@@ -41,14 +57,9 @@ public class AsyncApplication {
                 return "hello";
             };
         }
-//        public String callable() throws InterruptedException {
-//            log.info("async");
-//            Thread.sleep(2000);
-//            return "hello";
-//        }
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(AsyncApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }

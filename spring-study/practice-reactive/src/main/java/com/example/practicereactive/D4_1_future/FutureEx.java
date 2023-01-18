@@ -84,7 +84,6 @@ public class FutureEx {
         es.shutdown();
     }
 
-
     public static void main(String[] args) throws InterruptedException, ExecutionException {
 //        temp1();
 //        temp2();
