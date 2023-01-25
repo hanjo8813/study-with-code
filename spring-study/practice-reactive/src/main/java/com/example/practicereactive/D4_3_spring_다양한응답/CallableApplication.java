@@ -1,4 +1,4 @@
-package com.example.practicereactive.D4_3_future_spring_web;
+package com.example.practicereactive.D4_3_spring_다양한응답;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -24,12 +24,12 @@ import java.util.concurrent.Callable;
  * - servlet 3.1
  * req/res 처리까지 NIO
  * 콜백 패턴도 사용 가능~
- *
  */
+
 @Slf4j
 @EnableAsync
 @SpringBootApplication
-public class Application {
+public class CallableApplication {
 
     @RestController
     public static class MyController {
@@ -47,6 +47,8 @@ public class Application {
          * 비동기
          * Callable 객체를 그냥 리턴해도 스프링이 알아서 처리해줌
          * (실행 및 응답까지)
+         *
+         * 단, worker 스레드는 많이 필요함
          */
         @GetMapping("/async")
         public Callable<String> async() throws InterruptedException {
@@ -60,6 +62,6 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(CallableApplication.class, args);
     }
 }

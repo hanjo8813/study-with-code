@@ -39,7 +39,7 @@ public class AsyncApplication2 {
      * Executor 관련 객체 반환하는 bean 있으면 그 설정으로 등록됨
      * 해당 메소드명으로 @Async value 매핑 가능
      *
-     * init 사이즈 만큼 시작 -> core 꽉 차면 -> queue 사이즈만큼 줄세우고 -> queue도 꽉차면 -> 그때 max pool size 까지 스레드 생성
+     * core 사이즈 만큼 시작 -> core 꽉 차면 -> queue 사이즈만큼 줄세우고 -> queue도 꽉차면 -> 그때 max pool size 까지 스레드 생성
      */
     @Bean
     ThreadPoolTaskExecutor tp() {
@@ -61,7 +61,7 @@ public class AsyncApplication2 {
     MyService myService;
 
     @Bean
-    ApplicationRunner run() {
+    ApplicationRunner run2() {
         return args -> {
             log.info("run()");
             ListenableFuture<String> f = myService.hello();

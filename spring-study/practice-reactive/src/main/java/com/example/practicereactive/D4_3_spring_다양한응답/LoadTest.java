@@ -1,4 +1,4 @@
-package com.example.practicereactive.D4_3_future_spring_web;
+package com.example.practicereactive.D4_3_spring_다양한응답;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StopWatch;
