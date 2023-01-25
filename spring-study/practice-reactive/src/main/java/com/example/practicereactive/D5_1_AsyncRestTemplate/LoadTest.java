@@ -1,4 +1,4 @@
-package com.example.practicereactive.D5_1_;
+package com.example.practicereactive.D5_1_AsyncRestTemplate;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StopWatch;

@@ -1,4 +1,4 @@
-package com.example.practicereactive.D5_1_;
+package com.example.practicereactive.D5_1_AsyncRestTemplate;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

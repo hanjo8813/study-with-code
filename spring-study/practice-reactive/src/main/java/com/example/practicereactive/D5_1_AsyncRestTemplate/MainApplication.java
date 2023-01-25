@@ -1,4 +1,4 @@
-package com.example.practicereactive.D5_1_;
+package com.example.practicereactive.D5_1_AsyncRestTemplate;
 
 import io.netty.channel.nio.NioEventLoopGroup;
 import org.springframework.beans.factory.annotation.Autowired;
