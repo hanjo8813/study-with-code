@@ -1,1 +1,23 @@
-유튜브 - 토비의 봄 리액티브 강의를 바탕으로 정리
+### 유튜브 - 토비의 봄 리액티브 강의 (1~7강)
+
+- 리액티브 기초 개념 및 발전 과정
+- 리액티브 기본 패턴 구현해보기
+  - pubsub
+  - operator
+  - scheduler
+- Reactor 맛보기
+  - 위에서 했던 것들
+  - interval
+- 자바/스프링 비동기 기술
+  - ExecutorService
+  - Future
+  - FutureTask
+  - ListenableFuture
+  - Callable
+  - DeferredResult
+  - ResponseBodyEmitter
+  - Servlet 3.1
+  - Netty
+  - RestTemplate
+  - AsyncRestTemplate
+  - CompletableFuture

@@ -1,0 +1,5 @@
+dependencies {
+    // spring web 우선순위 : web > reactive web
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+}

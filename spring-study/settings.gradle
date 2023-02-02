@@ -7,4 +7,5 @@ include 'practice-logback'
 include 'practice-socket'
 include 'practice-dummy'
 include 'practice-reactive'
+include 'practice-reactive2'
 
