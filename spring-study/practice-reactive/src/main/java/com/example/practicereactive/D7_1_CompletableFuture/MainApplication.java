@@ -1,4 +1,4 @@
-package com.example.practicereactive.D6_1_AsyncRestTemplate_리팩토링;
+package com.example.practicereactive.D7_1_CompletableFuture;
 
 import io.netty.channel.nio.NioEventLoopGroup;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +19,7 @@ import org.springframework.web.client.AsyncRestTemplate;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.async.DeferredResult;
 
-import java.util.function.Consumer;
-import java.util.function.Function;
+import java.util.concurrent.CompletableFuture;
 
 @SpringBootApplication
 @EnableAsync
@@ -35,31 +34,58 @@ public class MainApplication {
         @Autowired
         MyService myService;
 
-        @GetMapping("/rest4")
-        public DeferredResult<String> rest4(int idx) {
+        /**
+         * 콜백헬 코드를 CompletableFuture로 리팩토링하기
+         *
+         * exceptionally 인자값은 Function 이라서 throw 만 하고 끝내지 못함 -> 억지 리턴값 만들어줌
+         * thenApplyAsync 써서 CF 자체적으로 비동기 적용 (워커 스레드 만들기 + Compose 타입변환도 필요없음)
+         */
+        @GetMapping("/rest")
+        public DeferredResult<String> rest(int idx) {
             DeferredResult<String> dr = new DeferredResult<>();
             AsyncRestTemplate rt = new AsyncRestTemplate(new Netty4ClientHttpRequestFactory(new NioEventLoopGroup(1)));
 
-            Completion
-                    .from(rt.getForEntity(URL1, String.class, "h" + idx))
-                    .andApply(s -> rt.getForEntity(URL2, String.class, s.getBody()))
-                    .andApply(s -> myService.work(s.getBody()))
-                    .andError(e -> dr.setErrorResult("Error [" + e.toString() + "]"))
-                    .andAccept(s -> dr.setResult(s));
+            toCF(rt.getForEntity(URL1, String.class, "hello" + idx))
+                    .thenCompose(
+                            s -> {
+                                if (1==1) throw new RuntimeException("ERROR");
+                                return toCF(rt.getForEntity(URL2, String.class, s.getBody()));
+                            }
+                    )
+                    .thenApplyAsync(s2 -> myService.work(s2.getBody()))
+                    .thenAccept(s3 -> dr.setResult(s3))
+                    .exceptionally(e -> {
+                        dr.setErrorResult(e.getMessage());
+                        return (Void) null;
+                    });
 
             return dr;
+        }
+
+        /**
+         * AsyncRestTemplate 응답값으로 CompletableFuture 가 없음
+         * 따라서 LF -> CF 로 convert 하는 메소드를 만들어줌
+         */
+        <T> CompletableFuture<T> toCF(ListenableFuture<T> lf) {
+            CompletableFuture<T> cf = new CompletableFuture<T>();
+            lf.addCallback(
+                    s -> cf.complete(s),
+                    e -> cf.completeExceptionally(e)
+            );
+            return cf;
         }
     }
 
     // ----------------------------------------------------------------------------------------------------
 
+    /**
+     * 기존에 @Async 붙여서 비동기로 실행하던 코드에서 비동기 없애버림
+     */
     @Service
     public static class MyService {
-        @Async
-        public ListenableFuture<String> work(String req) {
-            return new AsyncResult<>(req + "/asyncwork");
+        public String work(String req) {
+            return req + "/asyncwork";
         }
-
     }
 
     @Bean

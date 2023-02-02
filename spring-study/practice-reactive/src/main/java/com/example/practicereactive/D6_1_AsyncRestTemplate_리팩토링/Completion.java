@@ -9,6 +9,16 @@ public class Completion<S, T> {
 
     Completion next;
 
+    public static <S, T> Completion<S, T> from(ListenableFuture<T> lf) {
+        Completion<S, T> c = new Completion<>();
+        lf.addCallback(s -> {
+            c.complete(s);
+        }, e -> {
+            c.error(e);
+        });
+        return c;
+    }
+
     public void andAccept(Consumer<T> con) {
         Completion<T, Void> c = new AcceptCompletion(con);
         this.next = c;
@@ -23,16 +33,6 @@ public class Completion<S, T> {
     public <V> Completion<T, V> andApply(Function<T, ListenableFuture<V>> fn) {
         Completion<T, V> c = new ApplyCompletion<>(fn);
         this.next = c;
-        return c;
-    }
-
-    public static <S, T> Completion<S, T> from(ListenableFuture<T> lf) {
-        Completion<S, T> c = new Completion<>();
-        lf.addCallback(s -> {
-            c.complete(s);
-        }, e -> {
-            c.error(e);
-        });
         return c;
     }
 

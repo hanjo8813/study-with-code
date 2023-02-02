@@ -130,6 +130,8 @@ public class MainApplication {
         }
     }
 
+    // ----------------------------------------------------------------------------------------------------
+
     @Service
     public static class MyService {
         @Async
