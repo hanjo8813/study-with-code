@@ -29,14 +29,9 @@ public class Example {
      */
     public static void temp2() throws InterruptedException {
         CompletableFuture
-                .runAsync(() -> log.info("runAsync"))
+                .runAsync(() -> log.info("@@@@@ runAsync2 @@@@@"))
                 .thenRun(() -> log.info("thenRun"))
                 .thenRun(() -> log.info("thenRun"));
-
-        log.info("exit");
-
-        ForkJoinPool.commonPool().shutdown();
-        ForkJoinPool.commonPool().awaitTermination(10, TimeUnit.SECONDS);
     }
 
     /**
@@ -52,7 +47,7 @@ public class Example {
     public static void temp3() throws InterruptedException {
         CompletableFuture
                 .supplyAsync(() -> {
-                    log.info("runAsync");
+                    log.info("@@@@@ supplyAsync3 @@@@@");
 //                    if(1 == 1) throw new RuntimeException();
                     return 1;
                 })
@@ -66,11 +61,6 @@ public class Example {
                 })
                 .exceptionally(e -> -10)
                 .thenAccept(s3 -> log.info("thenAccept {}",s3));
-
-        log.info("exit");
-
-        ForkJoinPool.commonPool().shutdown();
-        ForkJoinPool.commonPool().awaitTermination(10, TimeUnit.SECONDS);
     }
 
     /**
@@ -83,7 +73,7 @@ public class Example {
 
         CompletableFuture
                 .supplyAsync(() -> {
-                    log.info("runAsync");
+                    log.info("@@@@@ supplyAsync4 @@@@@");
                     return 1;
                 }, es)
                 .thenCompose(s -> {
@@ -95,18 +85,31 @@ public class Example {
                     return s2 * 3;
                 }, es)
                 .thenAcceptAsync(s3 -> log.info("thenAccept {}",s3));
+    }
 
-        log.info("exit");
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+//        temp1();
+//        Thread.sleep(2000);
+//        log.info("--------- start ---------");
+
+        temp2();
+//        Thread.sleep(2000);
+//        log.info("--------- exit2 ---------");
+
+        temp3();
+//        Thread.sleep(2000);
+        log.info("--------- exit3 ---------");
+
+        temp4();
+//        Thread.sleep(2000);
+        log.info("--------- exit all ---------");
 
         ForkJoinPool.commonPool().shutdown();
         ForkJoinPool.commonPool().awaitTermination(10, TimeUnit.SECONDS);
     }
-
-
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-//        temp1();
-//        temp2();
-//        temp3();
-        temp4();
-    }
 }
+
+/**
+ * 실행시켜보니 log.info가 blocking으로 동작했음
+ * 따라서 log.info 이후의 코드는 모두 순차적으로 동작함. (이전 코드는 비동기)
+ */

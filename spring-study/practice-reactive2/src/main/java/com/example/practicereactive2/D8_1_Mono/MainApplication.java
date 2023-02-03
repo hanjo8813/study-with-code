@@ -66,6 +66,7 @@ public class MainApplication {
                     .flatMap(res2 -> Mono.fromCompletionStage(myService.work(res2)))
                         .doOnNext(str -> log.info(str));
         }
+
     }
 
     // ----------------------------------------------------------------------------------------------------
