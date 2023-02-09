@@ -1,4 +1,4 @@
-package com.example.practicereactive2.D8_1_Mono;
+package com.example.practicereactive2.D8_1_webflux_리팩토링;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
