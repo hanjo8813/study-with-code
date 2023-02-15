@@ -1,0 +1,5 @@
+rootProject.name = 'webflux-poc'
+include 'project-mvc'
+include 'project-mvc'
+include 'project-reactive'
+

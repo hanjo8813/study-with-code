@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0.32
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      TZ: Asia/Seoul
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+
+# docker-compose up -d
+# docker-compose down
