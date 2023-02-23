@@ -2,6 +2,7 @@ dependencies {
     implementation project(':domain')
     implementation 'org.springframework.boot:spring-boot-starter-webflux:3.0.2'
     implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc:3.0.2'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
     implementation "com.github.jasync-sql:jasync-r2dbc-mysql:2.1.23"
 //    implementation 'dev.miku:r2dbc-mysql:0.8.2.RELEASE'
 }

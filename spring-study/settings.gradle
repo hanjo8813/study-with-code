@@ -8,4 +8,5 @@ include 'practice-socket'
 include 'practice-dummy'
 include 'practice-reactive'
 include 'practice-reactive2'
+include 'practice-redis'
 
