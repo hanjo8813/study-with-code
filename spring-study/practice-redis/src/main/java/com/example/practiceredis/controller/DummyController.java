@@ -1,7 +1,7 @@
 package com.example.practiceredis.controller;
 
 import com.example.practiceredis.entity.Dummy;
-import com.example.practiceredis.repository.DummyRedisRepository;
+import com.example.practiceredis.repository.DummyCrudRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,7 @@ import java.util.Set;
 @RestController
 public class DummyController {
 
-    private final DummyRedisRepository repository;
+    private final DummyCrudRepository repository;
     private static int count = 0;
 
     @GetMapping("/create")
@@ -32,15 +32,14 @@ public class DummyController {
             .maps(Map.of("A", 1, "B", 2))
             .subDummy(Dummy.SubDummy.builder().str("sub-A").num(1).build())
             .build();
-        repository.save(dummy);
+        Dummy save = repository.save(dummy);
+        System.out.println(save.getKey());
         count++;
     }
 
     @GetMapping("/read/{key}")
-    public ResponseEntity<Dummy> read(@PathVariable String key) {
-        boolean b = repository.existsById(key);
-        System.out.println(b);
-
+    public ResponseEntity<Dummy> read(@PathVariable("key") String key) {
+        System.out.println(key);
         Dummy dummy = repository.findById(key).orElseThrow(() -> new RuntimeException("없어"));
         return ResponseEntity.ok(dummy);
     }

@@ -2,6 +2,7 @@ package com.example.practiceredis.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+@Data
 @Builder
 @RedisHash(value = "keyspace")
 public class Dummy {
@@ -25,6 +27,7 @@ public class Dummy {
 
     private SubDummy subDummy;
 
+    @Data
     @Builder
     public static class SubDummy {
         private String str;
