@@ -1,7 +1,7 @@
 package com.example.mvc.controller;
 
 import com.example.domain.Board;
-import com.example.mvc.service.BoardService;
+import com.example.mvc.repository.BoardRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,15 +14,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BoardController {
 
-    private final BoardService service;
+    private final BoardRepository repository;
 
     @GetMapping("/findAll")
     public ResponseEntity<List<Board>> findAll() {
-        return ResponseEntity.ok(service.findAll());
+        return ResponseEntity.ok(repository.findAll());
     }
 
-    @GetMapping("/insertDummy")
-    public ResponseEntity<Board> insertDummy() {
-        return ResponseEntity.ok(service.insertDummy());
-    }
+//    @GetMapping("/insertDummy")
+//    public ResponseEntity<Board> insertDummy() {
+//        return repository.save(
+//                Board.builder()
+//                        .memberId(1)
+//                        .title("title")
+//                        .content("content")
+//                        .build()
+//        );
+//        return ResponseEntity.ok(service.insertDummy());
+//    }
 }

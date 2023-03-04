@@ -1,6 +1,7 @@
 version: "3.9"
 
 services:
+
   mysql:
     image: mysql:8.0.32
     ports:
@@ -11,12 +12,21 @@ services:
     command:
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
+
   redis:
     image: arm64v8/redis
     ports:
       - "6379:6379"
     command: redis-server --port 6379
 
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=temp
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=1234
 
 # docker-compose up -d
 # docker-compose down
