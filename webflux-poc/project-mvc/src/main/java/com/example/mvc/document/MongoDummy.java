@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Builder
 @Data
-@Document(collection = "colTest")
+@Document(collection = "testCollection")
 public class MongoDummy {
 
     @Id
