@@ -1,42 +1,22 @@
 package com.example.practicekotlin
 
-// 부생성자
-class Temp1 {
-    var a: Int
-
-    constructor(a: Int) {
-        this.a = a
-    }
-}
-
-// 주생성자 + init
-class Temp2 constructor(a: Int) {
-    var a: Int
-
-    init {
-        this.a = a
-    }
-}
-
-// 주생성자 키워드 생략 + init
-class Temp3(a: Int) {
-    var a: Int
-
-    init {
-        this.a = a
-    }
-}
-
-// 주생성자 - 프로퍼티
-class Temp4(var a: Int) {
-
-}
-
-class Temp5 {
+// 생성자가 없는 필드값은 초기화 해줘야 한다.
+class Temp {
     var a: Int = 0
-    var b: Int = 2
+    val b: String = ""
+
+    // 이런식으로 필드값에 커스텀 getter/setter 적용가능
+    var c: Int = 0
+        get() = 1
+        set(value) {
+            if(value == 1){
+                field = value // backing field라고 함. 필드용 this라 생각하믄 됨
+            }
+        }
 }
 
 fun main() {
-    Temp4().a
+    val temp = Temp()
+
+    temp.c
 }
