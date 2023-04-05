@@ -20,16 +20,17 @@ public class BasicJobConfig {
     private final StepBuilderFactory stepBuilderFactory;
 
     @Bean
-    public Job basicJob() {
-        return jobBuilderFactory.get("basicJob")
-                .start(basicStep1())
-                .next(basicStep2())
+    public Job job() {
+        return jobBuilderFactory.get("job")
+                .start(step1())
+                .next(step2())
+                .next(step3())
                 .build();
     }
 
     @Bean
-    public Step basicStep1() {
-        return stepBuilderFactory.get("basicStep1")
+    public Step step1() {
+        return stepBuilderFactory.get("step1")
                 .tasklet(
                         new Tasklet() {
                             @Override
@@ -46,7 +47,7 @@ public class BasicJobConfig {
 
 //                                Map<String, Object> jobParameters1 = chunkContext.getStepContext().getJobParameters();
 
-                                System.out.println("basicStep1");
+                                System.out.println("step1 > tasklet");
                                 return RepeatStatus.FINISHED;
                             }
                         }
@@ -55,15 +56,22 @@ public class BasicJobConfig {
     }
 
     @Bean
-    public Step basicStep2() {
-        return stepBuilderFactory.get("basicStep2")
+    public Step step2() {
+        return stepBuilderFactory.get("step2")
                 .tasklet(
                         (contribution, chunkContext) -> {
-                            System.out.println("basicStep2");
+                            System.out.println("step2 > tasklet");
 //                            throw new RuntimeException();
                             return RepeatStatus.FINISHED;
                         }
                 )
+                .build();
+    }
+
+    @Bean
+    public Step step3() {
+        return stepBuilderFactory.get("step3")
+                .tasklet(new CustomTasklet())
                 .build();
     }
 }
