@@ -1,4 +1,4 @@
-package com.example.oldbatch;
+package com.example.oldbatch.basic1;
 
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.scope.context.ChunkContext;

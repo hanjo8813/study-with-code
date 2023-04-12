@@ -1,7 +1,9 @@
-package com.example.oldbatch;
+package com.example.oldbatch.basic1;
 
+import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
+import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
@@ -19,7 +21,7 @@ public class BasicJobConfig {
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
 
-    @Bean
+    @Bean(name = "basic1_job")
     public Job job() {
         return jobBuilderFactory.get("job")
                 .start(step1())
@@ -28,7 +30,7 @@ public class BasicJobConfig {
                 .build();
     }
 
-    @Bean
+    @Bean(name = "basic1_step1")
     public Step step1() {
         return stepBuilderFactory.get("step1")
                 .tasklet(
@@ -39,13 +41,14 @@ public class BasicJobConfig {
                                 /**
                                  * 두가지 방식으로 파라미터를 뽑아낼 수 있음
                                  */
-//                                JobParameters jobParameters = contribution.getStepExecution().getJobExecution().getJobParameters();
-//                                System.out.println(jobParameters.getString("stringKey"));
-//                                System.out.println(jobParameters.getLong("longKey"));
-//                                System.out.println( jobParameters.getDate("dateKey"));
-//                                System.out.println( jobParameters.getDouble("doubleKey"));
-
-//                                Map<String, Object> jobParameters1 = chunkContext.getStepContext().getJobParameters();
+                                // contribution 에서 추출
+                                JobParameters jobParameters = contribution.getStepExecution().getJobExecution().getJobParameters();
+                                System.out.println(jobParameters.getString("stringKey"));
+                                System.out.println(jobParameters.getLong("longKey"));
+                                System.out.println( jobParameters.getDate("dateKey"));
+                                System.out.println( jobParameters.getDouble("doubleKey"));
+                                // chunkContext 에서 추출
+                                Map<String, Object> jobParameters1 = chunkContext.getStepContext().getJobParameters();
 
                                 System.out.println("step1 > tasklet");
                                 return RepeatStatus.FINISHED;
@@ -55,7 +58,7 @@ public class BasicJobConfig {
                 .build();
     }
 
-    @Bean
+    @Bean(name = "basic1_step2")
     public Step step2() {
         return stepBuilderFactory.get("step2")
                 .tasklet(
@@ -68,7 +71,7 @@ public class BasicJobConfig {
                 .build();
     }
 
-    @Bean
+    @Bean(name = "basic1_step2")
     public Step step3() {
         return stepBuilderFactory.get("step3")
                 .tasklet(new CustomTasklet())

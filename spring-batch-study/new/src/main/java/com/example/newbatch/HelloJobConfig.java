@@ -17,9 +17,9 @@ import org.springframework.transaction.PlatformTransactionManager;
 public class HelloJobConfig extends DefaultBatchConfiguration {
 
     @Bean
-    public Job job(JobRepository jobRepository, Step step1) {
+    public Job job(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
         return new JobBuilder("job", jobRepository)
-                .start(step1)
+                .start(step(jobRepository, transactionManager))
                 .build();
     }
 

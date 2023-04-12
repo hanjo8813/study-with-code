@@ -1,8 +1,7 @@
-package com.example.oldbatch;
+package com.example.oldbatch.basic1;
 
 import java.util.Date;
 import lombok.RequiredArgsConstructor;
-import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.core.launch.JobLauncher;
@@ -14,7 +13,7 @@ import org.springframework.boot.ApplicationRunner;
 public class JobRunner implements ApplicationRunner {
 
     private final JobLauncher jobLauncher;
-    private final Job job;
+    private final BasicJobConfig basicJob;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -28,6 +27,6 @@ public class JobRunner implements ApplicationRunner {
                 .addDouble("doubleKey", 16.5)
                 .toJobParameters();
 
-        jobLauncher.run(job, jobParameters);
+        jobLauncher.run(basicJob.job(), jobParameters);
     }
 }
