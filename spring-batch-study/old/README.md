@@ -4,6 +4,7 @@
 - java 11
 - spring boot 2.7.10 (최신)
 - spring batch 4.3.8
+- 원본 레포 : https://github.com/onjsdnjs/spring-batch-lecture
 
 
 ### jar 실행
