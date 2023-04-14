@@ -30,6 +30,12 @@ spring:
 
   batch:
     jdbc:
+      # 메타데이터 테이블 생성 여부
       initialize-schema: always
+#      table-prefix:
     job:
+      # spring 실행시 job 실행 여부
       enabled: true
+      # spring 실행시 동작할 job 이름 지정
+      # args 넣어줄수도 있고, 없으면 NONE
+#      names: ${job.name:NONE}
