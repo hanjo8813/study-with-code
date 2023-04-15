@@ -12,7 +12,7 @@ public class Tasklet3 implements Tasklet {
 
     @Override
     public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
-        System.out.println("------------ tasklet2 ------------");
+        System.out.println("------------ tasklet3 ------------");
 
         ExecutionContext jobExecutionContext = contribution.getStepExecution().getJobExecution().getExecutionContext();
         ExecutionContext stepExecutionContext = contribution.getStepExecution().getExecutionContext();
