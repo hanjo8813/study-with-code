@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @EnableBatchProcessing
-@SpringBootApplication(scanBasePackages = {"com.example.oldbatch.ex09_flow"})
+@SpringBootApplication(scanBasePackages = {"com.example.oldbatch.ex14_scope"})
 public class OldBatchApplication {
 
     public static void main(String[] args) {
