@@ -1,4 +1,4 @@
-package com.example.oldbatch.basic2;
+package com.example.oldbatch.ex08_jobstep;
 
 import java.util.Date;
 import lombok.RequiredArgsConstructor;
@@ -8,9 +8,6 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-/**
- * Job - Step Execution Context 간 공유 가능여부 확인하는 예제
- */
 @RequiredArgsConstructor
 @Component
 public class JobRunner implements ApplicationRunner {
@@ -20,6 +17,6 @@ public class JobRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        jobLauncher.run(jobConfig.job(), new JobParametersBuilder().addDate("dateKey", new Date()).toJobParameters());
+        jobLauncher.run(jobConfig.parentJob(), new JobParametersBuilder().addDate("dateKey", new Date()).toJobParameters());
     }
 }

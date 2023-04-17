@@ -1,4 +1,4 @@
-package com.example.oldbatch.ex7_step;
+package com.example.oldbatch.ex07_step;
 
 import java.util.Arrays;
 import java.util.List;

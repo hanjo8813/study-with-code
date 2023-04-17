@@ -5,11 +5,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @EnableBatchProcessing
-@SpringBootApplication(scanBasePackages = {"com.example.oldbatch.ex8_jobstep"})
+@SpringBootApplication(scanBasePackages = {"com.example.oldbatch.ex10_flow"})
 public class OldBatchApplication {
 
     public static void main(String[] args) {
-        System.setProperty("spring.batch.job.enabled", "false");
+        System.setProperty("spring.batch.job.enabled", "true");
         SpringApplication.run(OldBatchApplication.class, args);
     }
 

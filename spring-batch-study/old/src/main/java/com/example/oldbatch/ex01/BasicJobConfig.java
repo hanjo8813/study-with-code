@@ -1,4 +1,4 @@
-package com.example.oldbatch.basic1;
+package com.example.oldbatch.ex01;
 
 import java.util.Map;
 import lombok.RequiredArgsConstructor;

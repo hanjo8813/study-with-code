@@ -1,4 +1,4 @@
-package com.example.oldbatch.basic3;
+package com.example.oldbatch.ex03;
 
 import javax.sql.DataSource;
 import org.springframework.batch.core.repository.JobRepository;

@@ -1,4 +1,4 @@
-package com.example.oldbatch.ex8_jobstep;
+package com.example.oldbatch.ex08_jobstep;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.ExitStatus;

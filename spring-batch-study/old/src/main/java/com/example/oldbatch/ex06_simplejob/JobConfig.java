@@ -1,4 +1,4 @@
-package com.example.oldbatch.basic4;
+package com.example.oldbatch.ex06_simplejob;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.Job;
@@ -21,6 +21,9 @@ public class JobConfig {
         return jobBuilderFactory.get("job")
                 .start(step1())
                 .next(step2())
+                .incrementer(new CustomJobParametersIncrementer())
+                .validator(new CustomJobParametersValidator())
+                .preventRestart()
                 .build();
     }
 

@@ -1,4 +1,4 @@
-package com.example.oldbatch.ex6_simplejob;
+package com.example.oldbatch.ex06_simplejob;
 
 import java.time.LocalDateTime;
 import org.springframework.batch.core.JobParameters;

@@ -1,4 +1,4 @@
-package com.example.oldbatch.ex6_simplejob;
+package com.example.oldbatch.ex06_simplejob;
 
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.JobParametersInvalidException;
