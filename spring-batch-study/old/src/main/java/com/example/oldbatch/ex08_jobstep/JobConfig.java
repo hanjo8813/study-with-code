@@ -14,6 +14,10 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * JobStep에 대한 예제
+ * step이 다른 job을 실행시킬 수 있음
+ */
 @RequiredArgsConstructor
 @Configuration
 public class JobConfig {

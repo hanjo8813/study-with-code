@@ -17,6 +17,9 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * TaskletStep과 ChunkStep의 메소드 api를 간단히 구현해보는 예제
+ */
 @RequiredArgsConstructor
 @Configuration
 public class JobConfig {

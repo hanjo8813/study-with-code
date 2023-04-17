@@ -1,7 +1,6 @@
-package com.example.oldbatch.ex10_flow;
+package com.example.oldbatch.ex12_flow;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.batch.core.ExitStatus;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
@@ -12,8 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * FlowJob의 기본적인 Transition을 익히는 예제
- * 이미지 참고
+ * decider 예제
  */
 @RequiredArgsConstructor
 @Configuration
@@ -21,21 +19,19 @@ public class JobConfig {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
+    private final CustomJobExecutionDecider decider;
 
     @Bean
     public Job job() {
         return jobBuilderFactory.get("job")
                 .start(step1())
-                    .on("FAILED")
+                .next(decider)
+                .from(decider)
+                    .on("O")
                     .to(step2())
-                        .on("*")
-                        .stop()
-                .from(step1())
-                    .on("*")
+                .from(decider)
+                    .on("X")
                     .to(step3())
-                    .next(step4())
-                        .on("FAILED")
-                        .end()
                 .end()
                 .incrementer(new RunIdIncrementer())
                 .build();
@@ -47,7 +43,6 @@ public class JobConfig {
                 .tasklet(
                         (contribution, chunkContext) -> {
                             System.out.println("tasklet 1");
-//                            contribution.setExitStatus(ExitStatus.FAILED);
                             return RepeatStatus.FINISHED;
                         }
                 )
@@ -78,16 +73,4 @@ public class JobConfig {
                 .build();
     }
 
-    @Bean
-    public Step step4() {
-        return stepBuilderFactory.get("step4")
-                .tasklet(
-                        (contribution, chunkContext) -> {
-                            System.out.println("tasklet 4");
-                            contribution.setExitStatus(ExitStatus.FAILED);
-                            return RepeatStatus.FINISHED;
-                        }
-                )
-                .build();
-    }
 }

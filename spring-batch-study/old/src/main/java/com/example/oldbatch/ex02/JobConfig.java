@@ -8,6 +8,10 @@ import org.springframework.batch.core.configuration.annotation.StepBuilderFactor
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * step + job ExecutionContext 공유 여부를 확인하는 예제
+ * 이미지 참고
+ */
 @RequiredArgsConstructor
 @Configuration
 public class JobConfig {

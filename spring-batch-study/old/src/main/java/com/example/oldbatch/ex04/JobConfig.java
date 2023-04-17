@@ -9,6 +9,10 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * batch를 비동기적으로 실행하는 방법에 대한 예제
+ * controller에서 job을 비동기적으로 실행시키도록 함
+ */
 @RequiredArgsConstructor
 @Configuration
 public class JobConfig {

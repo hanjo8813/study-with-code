@@ -1,16 +1,20 @@
-package com.example.oldbatch.ex05_flow;
+package com.example.oldbatch.ex11_flow;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.batch.core.ExitStatus;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
-import org.springframework.batch.core.job.builder.FlowBuilder;
-import org.springframework.batch.core.job.flow.Flow;
+import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * 커스텀 ExitStatus를 만들고 Flow에 적용시키는 예제
+ * 상태는 스텝 리스너쪽에서 적용시킴
+ */
 @RequiredArgsConstructor
 @Configuration
 public class JobConfig {
@@ -21,21 +25,14 @@ public class JobConfig {
     @Bean
     public Job job() {
         return jobBuilderFactory.get("job")
-                .start(flow())
-                .end()
-                .build();
-    }
-
-    @Bean
-    public Flow flow() {
-        FlowBuilder<Flow> flowBuilder = new FlowBuilder<>("flow");
-
-        flowBuilder
                 .start(step1())
-                .next(step2())
-                .end();
-
-        return flowBuilder.build();
+                    .on("FAILED")
+                    .to(step2())
+                        .on("CUSTOM")
+                        .stop()
+                .end()
+                .incrementer(new RunIdIncrementer())
+                .build();
     }
 
     @Bean
@@ -44,6 +41,7 @@ public class JobConfig {
                 .tasklet(
                         (contribution, chunkContext) -> {
                             System.out.println("tasklet 1");
+                            contribution.setExitStatus(ExitStatus.FAILED);
                             return RepeatStatus.FINISHED;
                         }
                 )
@@ -59,6 +57,8 @@ public class JobConfig {
                             return RepeatStatus.FINISHED;
                         }
                 )
+                .listener(new CustomStepExecutionListener())
                 .build();
     }
+
 }
