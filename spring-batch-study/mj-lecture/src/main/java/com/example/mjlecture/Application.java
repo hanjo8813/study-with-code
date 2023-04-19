@@ -1,16 +1,14 @@
-package com.example.oldbatch;
+package com.example.mjlecture;
 
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @EnableBatchProcessing
-@SpringBootApplication(scanBasePackages = {"com.example.oldbatch.ex15_chunk"})
-public class OldBatchApplication {
+@SpringBootApplication
+public class Application {
 
     public static void main(String[] args) {
-        System.setProperty("spring.batch.job.enabled", "true");
-        SpringApplication.run(OldBatchApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
-
 }

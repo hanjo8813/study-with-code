@@ -1,4 +1,6 @@
 rootProject.name = 'spring-batch-study'
 include 'new'
 include 'old'
+include 'old2'
+include 'mj-lecture'
 
