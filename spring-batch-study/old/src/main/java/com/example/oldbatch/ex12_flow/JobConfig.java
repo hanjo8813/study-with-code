@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * decider 예제
+ * step listener 등록해서 ExitStatus 조작 필요 없이 분기
  */
 @RequiredArgsConstructor
 @Configuration
