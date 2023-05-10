@@ -1,5 +1,8 @@
 rootProject.name = 'spring-study'
 
+include 'study-batch:study-batch-lecture'
+include 'study-batch:study-batch-new'
+
 include 'study-core:study-aop'
 include 'study-core:study-proxy'
 include 'study-core:study-all-flow'
@@ -14,3 +17,4 @@ include 'study-reactive:study-reactive2'
 
 include 'study-etc:study-socket'
 include 'study-etc:study-dummy'
+
