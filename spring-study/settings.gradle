@@ -1,12 +1,16 @@
 rootProject.name = 'spring-study'
-include 'practice-aop'
-include 'practice-proxy'
-include 'practice-jpa'
-include 'practice-all-flow'
-include 'practice-logback'
-include 'practice-socket'
-include 'practice-dummy'
-include 'practice-reactive'
-include 'practice-reactive2'
-include 'practice-redis'
 
+include 'study-core:study-aop'
+include 'study-core:study-proxy'
+include 'study-core:study-all-flow'
+
+include 'study-db:study-jpa'
+include 'study-db:study-redis'
+
+include 'study-mornitoring:study-logback'
+
+include 'study-reactive:study-reactive1'
+include 'study-reactive:study-reactive2'
+
+include 'study-etc:study-socket'
+include 'study-etc:study-dummy'
