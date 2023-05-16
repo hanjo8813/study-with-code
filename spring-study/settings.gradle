@@ -3,6 +3,7 @@ rootProject.name = 'spring-study'
 include 'study-basic:study-aop'
 include 'study-basic:study-proxy'
 include 'study-basic:study-all-flow'
+include 'study-basic:study-cache'
 
 include 'study-batch:study-batch-lecture'
 include 'study-batch:study-batch-new'
@@ -13,9 +14,10 @@ include 'study-db:study-redis'
 include 'study-reactive:study-reactive1'
 include 'study-reactive:study-reactive2'
 
+include 'study-monitoring:study-logback'
+include 'study-monitoring:study-prometheus'
+
 include 'study-etc:study-socket'
 include 'study-etc:study-dummy'
-include 'study-etc:study-logback'
-include 'study-basic:study-cache'
-findProject(':study-basic:study-cache')?.name = 'study-cache'
+
 

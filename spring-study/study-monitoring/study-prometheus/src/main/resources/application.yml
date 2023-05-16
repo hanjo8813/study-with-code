@@ -1,0 +1,22 @@
+management:
+  server:
+    port: 8081
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+  # prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    # web mvc 요청 메트릭 활성화
+    web:
+      server:
+        request:
+          autotime:
+            enabled: true
