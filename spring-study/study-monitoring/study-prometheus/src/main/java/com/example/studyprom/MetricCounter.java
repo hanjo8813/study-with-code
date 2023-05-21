@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class MetricCounter {
 
+    /**
+     * Counter는 metric + tag 만 잘 찾으면 전역으로도 사용 가능
+     */
     @PostConstruct
     public void init() {
         // micrometer 스태틱 사용방식
