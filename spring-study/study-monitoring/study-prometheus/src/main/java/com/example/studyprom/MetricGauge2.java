@@ -4,9 +4,8 @@ import io.micrometer.core.instrument.Metrics;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.annotation.PostConstruct;
-import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class MetricGauge2 {
 
     private AtomicInteger num;

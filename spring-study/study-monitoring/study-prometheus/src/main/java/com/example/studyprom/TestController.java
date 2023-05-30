@@ -2,6 +2,7 @@ package com.example.studyprom;
 
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.Metrics;
+import java.time.LocalTime;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     private final MetricGauge metricGauge;
+    private final MetricTimer metricTimer;
 
     @GetMapping("/counter")
     public double counter() {
@@ -27,5 +29,12 @@ public class TestController {
     @GetMapping("/gauge/list")
     public void gaugeList() {
         metricGauge.addList();
+    }
+
+    @GetMapping("/timer")
+    public void timer() throws InterruptedException {
+        LocalTime start = LocalTime.now();
+        Thread.sleep(5000);
+        metricTimer.record(start);
     }
 }
