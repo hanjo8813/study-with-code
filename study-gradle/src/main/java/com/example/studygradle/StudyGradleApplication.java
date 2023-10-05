@@ -1,15 +1,13 @@
-package com.example.newbatch;
+package com.example.studygradle;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//@EnableBatchProcessing
 @SpringBootApplication
-@Deprecated
-public class NewBatchApplication {
+public class StudyGradleApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(NewBatchApplication.class, args);
+        SpringApplication.run(StudyGradleApplication.class, args);
     }
 
 }

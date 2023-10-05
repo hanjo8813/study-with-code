@@ -8,6 +8,7 @@ import ImageUploadBase64 from './views/ImageUploadBase64';
 import Calender from './views/Calender';
 import SockJsTest from './views/SockJsTest';
 import SocketIoTest from './views/SocketIoTest';
+import CorsTest from './views/CorsTest';
 
 
 
@@ -24,6 +25,9 @@ function App() {
 
       <Route path="/sockjs" component={SockJsTest} exact />
       <Route path="/socketio" component={SocketIoTest} exact />
+
+      <Route path="/corstest" component={CorsTest} exact />
+
 
     </BrowserRouter>
   );

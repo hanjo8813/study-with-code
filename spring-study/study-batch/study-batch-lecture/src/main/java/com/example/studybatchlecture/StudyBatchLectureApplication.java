@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @EnableBatchProcessing
-@SpringBootApplication(scanBasePackages = {"com.example.studybatchlecture.ex07_step"})
+@SpringBootApplication(scanBasePackages = {"com.example.studybatchlecture.ex02"})
 public class StudyBatchLectureApplication {
 
     public static void main(String[] args) {
