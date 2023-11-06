@@ -1,5 +1,6 @@
-package com.example.studyprom;
+package com.example.studyprom.gauge;
 
+import com.example.studyprom.CustomTag;
 import io.micrometer.core.instrument.Metrics;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,8 +26,13 @@ public class MetricGauge {
         Metrics.gauge("custom.metric.gauge.list", CustomTag.tag1, list, List::size);
     }
 
-    public void plusNum() {
-        num.addAndGet(1);
+    public void change() {
+        if(num.get() == 0) {
+            num.set(1);
+        }
+        else {
+            num.set(0);
+        }
     }
 
     public void addList() {

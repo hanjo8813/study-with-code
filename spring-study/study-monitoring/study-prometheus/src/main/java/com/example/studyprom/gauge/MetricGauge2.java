@@ -1,5 +1,6 @@
-package com.example.studyprom;
+package com.example.studyprom.gauge;
 
+import com.example.studyprom.CustomTag;
 import io.micrometer.core.instrument.Metrics;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;

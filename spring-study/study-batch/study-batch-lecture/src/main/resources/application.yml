@@ -24,7 +24,7 @@ spring:
       on-profile: mysql
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver # 커넥터 최신 버전은 cj가 들어감
-    url: jdbc:mysql://localhost/old_batch
+    url: jdbc:mysql://localhost/batch-lecture
     username: root
     password: 1234
 

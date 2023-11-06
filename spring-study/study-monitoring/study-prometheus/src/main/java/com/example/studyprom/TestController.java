@@ -1,5 +1,7 @@
 package com.example.studyprom;
 
+import com.example.studyprom.gauge.MetricGauge;
+import com.example.studyprom.timer.MetricTimer;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.Metrics;
 import java.time.LocalTime;
@@ -23,7 +25,7 @@ public class TestController {
 
     @GetMapping("/gauge/num")
     public void gaugeNum() {
-        metricGauge.plusNum();
+        metricGauge.change();
     }
 
     @GetMapping("/gauge/list")

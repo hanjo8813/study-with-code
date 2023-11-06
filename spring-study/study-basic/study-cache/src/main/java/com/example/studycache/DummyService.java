@@ -15,4 +15,12 @@ public class DummyService {
         System.out.println("call service");
         return repository.getDummy();
     }
+
+    @Cacheable(cacheNames = "dummy2")
+    public Dummy getDummy2() {
+        System.out.println("call service2");
+        System.out.println(getDummy());
+        return new Dummy(2, "B");
+    }
+
 }

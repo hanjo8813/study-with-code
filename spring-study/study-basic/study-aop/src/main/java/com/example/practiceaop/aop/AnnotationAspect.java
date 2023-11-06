@@ -24,6 +24,7 @@ public class AnnotationAspect {
         Signature signature = joinPoint.getSignature();
         String methodName = signature.getName();
 
+        System.out.println("------- AOP START --------");
         System.out.println("Annotation - Around : " + methodName + " 메소드가 시작되었습니다");
         Object result = joinPoint.proceed();
         System.out.println("Annotation - Around : " + methodName + " 메소드가 끝났습니다");

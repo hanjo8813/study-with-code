@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ServiceAspect {
 
-    @Pointcut("execution(* com.example.practiceaop..*ServiceImpl.test1(..))")
+    @Pointcut("execution(* com.example.practiceaop..*ServiceImpl.test*(..))")
     private void pointCut() {
     }
 

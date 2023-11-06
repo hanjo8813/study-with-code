@@ -5,7 +5,8 @@ import lombok.Getter;
 @Getter
 public enum CacheType {
 
-    DUMMY("dummy",5 * 60, 10000);
+    DUMMY("dummy",5 * 60, 10000),
+    DUMMY2("dummy2",5 * 60, 10000);
 
     CacheType(String cacheName, int expireAfterWrite, int maximumSize) {
         this.cacheName = cacheName;

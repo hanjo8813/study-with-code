@@ -15,4 +15,10 @@ public class DummyController {
         System.out.println("call controller");
         return service.getDummy();
     }
+
+    @GetMapping("/dummy2")
+    public Dummy getDummy2() {
+        System.out.println("call controller2");
+        return service.getDummy2();
+    }
 }
