@@ -12,7 +12,12 @@ public class DummyComponent {
     private final DummyBean dummyBean;
 
     @PostConstruct
-    public void post(){
+    public void post1(){
         System.out.println(dummyBean.getStr());
+    }
+
+    @PostConstruct
+    public void post2(){
+        System.out.println("222222");
     }
 }

@@ -1,22 +1,33 @@
 rootProject.name = 'spring-study'
 
+// basic
 include 'study-basic:study-aop'
 include 'study-basic:study-proxy'
 include 'study-basic:study-all-flow'
 include 'study-basic:study-cache'
 
+// batch
 include 'study-batch:study-batch-lecture'
 include 'study-batch:study-batch-new'
 
+// db
 include 'study-db:study-jpa'
 include 'study-db:study-redis'
 
+// reactive
 include 'study-reactive:study-reactive1'
 include 'study-reactive:study-reactive2'
 
+// monitoring
 include 'study-monitoring:study-logback'
 include 'study-monitoring:study-prometheus'
 
+// msa
+include 'study-msa:study-resilience4j-client'
+
+// etc
 include 'study-etc:study-socket'
 include 'study-etc:study-dummy'
+include 'study-msa:study-resilience4j-server'
+findProject(':study-msa:study-resilience4j-server')?.name = 'study-resilience4j-server'
 

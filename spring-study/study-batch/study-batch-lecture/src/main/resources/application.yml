@@ -3,6 +3,7 @@ spring:
     active: local
 
 ---
+
 spring:
   config:
     activate:
@@ -18,6 +19,7 @@ spring:
       initialize-schema: embedded
 
 ---
+
 spring:
   config:
     activate:

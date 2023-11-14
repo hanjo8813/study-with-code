@@ -34,17 +34,19 @@ public class JobConfig {
     @Bean
     public Step step1() {
         return stepBuilderFactory.get("step1")
-                .<String, String>chunk(5)
-                .reader(new ListItemReader<>(Arrays.asList("item1", "item2", "item3", "item4", "item5")))
+                .<String, String>chunk(2)
+                .reader(new ListItemReader<>(Arrays.asList("item1", "item2", "item3", "item4", "item5", "item6")))
                 .processor(new ItemProcessor<String, String>() {
                     @Override
                     public String process(String item) throws Exception {
                         return item.toUpperCase();
                     }
                 })
+                // 여기까지 chunk 생성
                 .writer(new ItemWriter<String>() {
                     @Override
                     public void write(List<? extends String> items) throws Exception {
+                        System.out.println("--- write ---");
                         items.forEach(item -> System.out.println(item));
                     }
                 })
