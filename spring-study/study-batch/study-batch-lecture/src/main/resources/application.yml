@@ -1,6 +1,8 @@
-spring:
-  profiles:
-    active: local
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 ---
 
@@ -41,3 +43,5 @@ spring:
       # spring 실행시 동작할 job 이름 지정
       # args 넣어줄수도 있고, 없으면 NONE
 #      names: ${job.name:NONE}
+
+

@@ -4,6 +4,14 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
+dependencyManagement {
+    imports {
+        // 버전 > 아래 링크의 Release Train 참고
+        // https://spring.io/projects/spring-cloud
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:2021.0.8'
+    }
+}
+
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = "11"

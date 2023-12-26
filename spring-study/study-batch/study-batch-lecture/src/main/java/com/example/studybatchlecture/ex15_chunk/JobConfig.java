@@ -31,6 +31,9 @@ public class JobConfig {
                 .build();
     }
 
+    /**
+     * reader, processor는 한개씩, writer는 청크 단위로 읽음
+     */
     @Bean
     public Step step1() {
         return stepBuilderFactory.get("step1")
