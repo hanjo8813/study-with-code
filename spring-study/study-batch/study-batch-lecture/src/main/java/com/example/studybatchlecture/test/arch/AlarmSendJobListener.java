@@ -20,8 +20,6 @@ public class AlarmSendJobListener implements JobExecutionListener {
         }
 
         System.out.println("wake up!");
-        System.out.println("----------------");
-        System.out.println();
     }
 
     @Override

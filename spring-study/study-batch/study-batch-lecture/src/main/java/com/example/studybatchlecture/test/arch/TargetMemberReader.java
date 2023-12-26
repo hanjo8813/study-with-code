@@ -1,41 +1,58 @@
 package com.example.studybatchlecture.test.arch;
 
-
 import java.util.List;
+import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.item.ExecutionContext;
 import org.springframework.batch.item.ItemStreamException;
 import org.springframework.batch.item.ItemStreamReader;
 import org.springframework.batch.item.NonTransientResourceException;
 import org.springframework.batch.item.ParseException;
 import org.springframework.batch.item.UnexpectedInputException;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
-//@Component
-public class TargetMemberReader implements ItemStreamReader<Integer> {
+@StepScope
+@Component
+public class TargetMemberReader implements ItemStreamReader<Long> {
 
-//    private final List<Long> memberNos;
+    @Value("#{jobExecutionContext['memberNos']}")
+    private List<Long> memberNos;
+    private int nextIndex = 0;
 
     @Override
-    public Integer read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
-        return null;
+    public Long read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
+        System.out.println("----- read -----");
+
+        Long memberNo = null;
+        if (nextIndex < memberNos.size()) {
+            memberNo = memberNos.get(nextIndex);
+            nextIndex++;
+        }
+        System.out.println(memberNo);
+        return memberNo;
     }
 
     @Override
     public void open(ExecutionContext executionContext) throws ItemStreamException {
-        System.out.println("----- stream open -----");
+        System.out.println("----- [stream] open -----");
 
-        List<Integer> memberNos = (List<Integer>) executionContext.get("memberNos");
-
-
-
+        if (executionContext.containsKey("index")) {
+            nextIndex = executionContext.getInt("index");
+        } else {
+            executionContext.put("index", nextIndex);
+        }
     }
 
     @Override
     public void update(ExecutionContext executionContext) throws ItemStreamException {
-
+        System.out.println("----- [stream] update -----");
+        executionContext.put("nextIndex", nextIndex);
+        System.out.println(nextIndex);
+        System.out.println("=====================================");
     }
 
     @Override
     public void close() throws ItemStreamException {
-
+        System.out.println("----- [stream] close -----");
     }
 }
