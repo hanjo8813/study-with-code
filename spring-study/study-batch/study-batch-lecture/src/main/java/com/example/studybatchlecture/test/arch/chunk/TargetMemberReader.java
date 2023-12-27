@@ -1,4 +1,4 @@
-package com.example.studybatchlecture.test.arch;
+package com.example.studybatchlecture.test.arch.chunk;
 
 import java.util.List;
 import org.springframework.batch.core.configuration.annotation.StepScope;
@@ -29,6 +29,13 @@ public class TargetMemberReader implements ItemStreamReader<Long> {
             nextIndex++;
         }
         System.out.println(memberNo);
+
+        //
+//        if(nextIndex == 7L) {
+//            throw new RuntimeException();
+//        }
+        //
+
         return memberNo;
     }
 
@@ -36,10 +43,10 @@ public class TargetMemberReader implements ItemStreamReader<Long> {
     public void open(ExecutionContext executionContext) throws ItemStreamException {
         System.out.println("----- [stream] open -----");
 
-        if (executionContext.containsKey("index")) {
-            nextIndex = executionContext.getInt("index");
+        if (executionContext.containsKey("nextIndex")) {
+            nextIndex = executionContext.getInt("nextIndex");
         } else {
-            executionContext.put("index", nextIndex);
+            executionContext.put("nextIndex", nextIndex);
         }
     }
 
