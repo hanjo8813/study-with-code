@@ -11,6 +11,7 @@ public class DummyComponent {
 
     private final DummyBean dummyBean;
 
+    // PostConstruct 중복 선언 해도 잘 동작함
     @PostConstruct
     public void post1(){
         System.out.println(dummyBean.getStr());

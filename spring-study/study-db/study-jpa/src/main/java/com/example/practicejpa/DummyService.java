@@ -1,7 +1,9 @@
 package com.example.practicejpa;
 
 import com.example.practicejpa.entity.Dummy;
+import com.example.practicejpa.entity.Dummy1;
 import com.example.practicejpa.entity.User;
+import com.example.practicejpa.repository.Dummy1Repository;
 import com.example.practicejpa.repository.DummyRepository;
 import com.example.practicejpa.repository.UserRepository;
 import java.util.List;
@@ -15,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class DummyService {
 
     private final DummyRepository repository;
+    private final Dummy1Repository repository1;
 
     public List<Dummy> findAll() {
         return repository.findAll();
@@ -37,5 +40,9 @@ public class DummyService {
         repository.save(temp);
 
         save(dummy);
+    }
+
+    public List<Dummy1> findMapped() {
+        return repository1.findAll();
     }
 }

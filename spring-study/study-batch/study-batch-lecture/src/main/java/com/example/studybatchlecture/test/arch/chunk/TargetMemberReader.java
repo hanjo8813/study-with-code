@@ -26,16 +26,14 @@ public class TargetMemberReader implements ItemStreamReader<Long> {
         Long memberNo = null;
         if (nextIndex < memberNos.size()) {
             memberNo = memberNos.get(nextIndex);
+//            memberNo = memberNos[nextIndex];
             nextIndex++;
         }
         System.out.println(memberNo);
 
-        //
-//        if(nextIndex == 7L) {
+//        if(nextIndex == 5L) {
 //            throw new RuntimeException();
 //        }
-        //
-
         return memberNo;
     }
 
@@ -54,7 +52,7 @@ public class TargetMemberReader implements ItemStreamReader<Long> {
     public void update(ExecutionContext executionContext) throws ItemStreamException {
         System.out.println("----- [stream] update -----");
         executionContext.put("nextIndex", nextIndex);
-        System.out.println(nextIndex);
+        System.out.println("nextIndex : " + nextIndex);
         System.out.println("=====================================");
     }
 

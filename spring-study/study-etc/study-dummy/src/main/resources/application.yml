@@ -1,0 +1,7 @@
+#springdoc:
+#  swagger-ui:
+#    path: /
+
+spring:
+  jackson:
+    time-zone: Asia/Seoul

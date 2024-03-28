@@ -1,0 +1,6 @@
+rootProject.name = 'tp-poc'
+include 'webclient'
+include 'restclient'
+include 'openfeign'
+include 'target-api'
+
